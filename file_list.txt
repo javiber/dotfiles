@@ -1,0 +1,6 @@
+/home/tryolabs/.config/i3/config
+/home/tryolabs/.i3blocks.conf
+/home/tryolabs/.bashrc
+/home/tryolabs/.xinitrc
+/home/tryolabs/.Xmodmap
+/home/tryolabs/.zshrc
