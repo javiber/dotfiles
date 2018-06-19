@@ -1,6 +1,0 @@
-/home/javiber/.config/i3/config
-/home/javiber/.i3blocks.conf
-/home/javiber/.bashrc
-/home/javiber/.xinitrc
-/home/javiber/.Xmodmap
-/home/javiber/.zshrc
