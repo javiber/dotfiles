@@ -2,7 +2,10 @@ set $terminal i3-sensible-terminal
 # start a terminal in case something goes wrong
 # exec --no-startup-id $terminal
 
-gaps inner 8
+# set resolution
+exec --no-startup-id xrandr --output eDP-1 --mode 2048x1152
+
+gaps inner 4
 # gaps outer 1
 
 # this should be binded to caps key
@@ -25,7 +28,7 @@ bindsym $mod+Return exec --no-startup-id $terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun -config /home/javiber/.config/rofi
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme glue_pro_blue
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run -config /home/javiber/.config/rofi
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -128,20 +131,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 
 ########################## i3bar ###############################
-# bar {
-#   position top
-#   status_command SCRIPT_DIR=/usr/libexec/i3blocks i3blocks
-#   font pango:Source Sans Pro-10 10
-#   colors {
-#     separator #268bd2
-#     background #002b36
-#     statusline #839496
-#     focused_workspace #fdf6e3 #6c71c4 #fdf6e3
-#     active_workspace #fdf6e3 #6c71c4 #fdf6e3
-#     inactive_workspace #002b36 #586e75 #002b36
-#     urgent_workspace #d33682 #d33682 #fdf6e3
-#   }
-# }
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 ################################################################
 
@@ -159,10 +148,10 @@ mode "resize" {
   bindsym l resize grow width 10 px or 10 ppt
 
   # same bindings, but for the arrow keys
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+#  bindsym Left resize shrink width 10 px or 10 ppt
+#  bindsym Down resize grow height 10 px or 10 ppt
+#  bindsym Up resize shrink height 10 px or 10 ppt
+#  bindsym Right resize grow width 10 px or 10 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -202,14 +191,15 @@ bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mp
 # startup
 exec --no-startup-id i3-msg 'exec clipit'
 exec --no-startup-id i3-msg 'exec notes'
-exec_always --no-startup-id i3-msg 'exec python ~/bg.py'
+exec_always --no-startup-id i3-msg 'exec python /home/javiber/dotfiles/background_script.py'
+exec --no-startup-id nm-applet
 
 # workspace config
 assign [class="(?i)slack"] → workspace 4
 assign [class="(?i)notes"] → workspace 8
 
 # nautilus fixes
-exec_always gsettings set org.gnome.desktop.background show-desktop-icons false
-exec_always gsettings set org.nemo.desktop show-desktop-icons false
+exec_always --no-startup-id gsettings set org.gnome.desktop.background show-desktop-icons false
+exec_always --no-startup-id gsettings set org.nemo.desktop show-desktop-icons false
 
 # exec --no-startup-id compton --xrender-sync-fence
