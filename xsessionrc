@@ -1,8 +1,8 @@
 # two-finger right click
-xinput set-prop 12 --type=int 298 0 1
+xinput set-prop 13 --type=int 296 0 1
 
 # tap-click
-xinput set-prop 12 280 1
+xinput set-prop 13 280 1
 
 # set keyboard layout
 setxkbmap -layout us -variant altgr-intl -option nodeadkeys
@@ -11,4 +11,7 @@ setxkbmap -layout us -variant altgr-intl -option nodeadkeys
 xmodmap ~/.Xmodmap
 
 # fix dpi
-xrandr --dpi 200
+#xrandr --dpi 200
+
+# Change reslution
+randr --output eDP-1 --mode 2048x1152
