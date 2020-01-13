@@ -1,8 +1,0 @@
-{
-    "i3_conf": "~/.config/i3/config",
-    "polybar_config": "~/.config/polybar/config",
-    "polybar_launch.sh": "~/.config/polybar/launch.sh",
-    "Xmodmap": "~/.Xmodmap",
-    "Xdefailts": "~/.Xdefaults",
-    "xsessionrc": "~/.xsessionrc"
-}
