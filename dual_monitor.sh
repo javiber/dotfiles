@@ -25,7 +25,8 @@ if [ -z "$MONITOR" ]; then
 else
 	echo "configuring $MONITOR"
 	if [ $MIRROR -eq 1 ]; then
-		xrandr --output $MONITOR --auto --same-as $PRIMARY
+		xrandr --output $MONITOR --auto
+		start_conky_maia  # restarts conky
 	else
 		xrandr --output $MONITOR --auto --above $PRIMARY
 		i3-msg workspace 10, move workspace to output $MONITOR

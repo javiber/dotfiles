@@ -36,8 +36,7 @@ fi
 #################
 
 # display
-xrandr --output eDP1 --mode 2048x1152
-# xrandr --dpi 200
+# xrandr --output eDP1 --mode 2048x1152
 
 # Get this ID by running `xinput | grep Touchpad`
 TOUCHPAD_ID=14
