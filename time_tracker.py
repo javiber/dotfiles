@@ -50,9 +50,14 @@ if __name__ == '__main__':
     if args.daemon:
         run_daemon()
     else:
-        now = datetime.now() - timedelta(days=args.days)
-        file_path = os.path.join(folder, now.date().isoformat())
-        with open(file_path, 'r') as f:
-            data = json.load(f)
-        print(now.date().isoformat())
-        print(dateparser.parse(data['last']) - dateparser.parse(data['start']))
+        now = datetime.now()
+        for d in range(args.days, -1, -1):        
+            date = datetime.now() - timedelta(days=d)
+            print(date.date().isoformat())
+            try:
+                file_path = os.path.join(folder, date.date().isoformat())
+                with open(file_path, 'r') as f:
+                    data = json.load(f)
+                print(dateparser.parse(data['last']) - dateparser.parse(data['start']))
+            except FileNotFoundError:
+                print("--No data--")
