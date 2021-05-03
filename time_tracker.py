@@ -11,7 +11,7 @@ from dateutil import parser as dateparser
 interface = 'wlp2s0'
 ssids = ['Tryolabs']
 ssid_re = re.compile('ESSID:\"(.*)\"', re.MULTILINE)
-folder = os.path.expanduser('~/work_time')
+folder = os.path.expanduser('~/.time_tracker')
 
 def run_daemon():
     if not os.path.isdir(folder):
@@ -58,6 +58,6 @@ if __name__ == '__main__':
                 file_path = os.path.join(folder, date.date().isoformat())
                 with open(file_path, 'r') as f:
                     data = json.load(f)
-                print(dateparser.parse(data['last']) - dateparser.parse(data['start']))
+                print(f"\t{dateparser.parse(data['last']) - dateparser.parse(data['start'])}")
             except FileNotFoundError:
-                print("--No data--")
+                print("\t--No data--")
